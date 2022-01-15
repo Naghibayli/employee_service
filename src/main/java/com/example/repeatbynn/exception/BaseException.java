@@ -1,9 +1,9 @@
 package com.example.repeatbynn.exception;
 
 public class BaseException extends RuntimeException {
-    private String message;
-    private String code;
-    private String description;
+    private final String message;
+    private final String code;
+    private final String description;
 
     public BaseException(String message, String code, String description) {
         this.message = message;

@@ -1,5 +1,6 @@
 package com.example.repeatbynn.service.impl;
 
+import com.example.repeatbynn.dto.common.CommonMessage;
 import com.example.repeatbynn.dto.common.CommonResponse;
 import com.example.repeatbynn.dto.request.EmployeeRequest;
 import com.example.repeatbynn.dto.response.EmployeeResponse;
@@ -75,9 +76,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     public CommonResponse findAll() {
         CommonResponse response = new CommonResponse();
         List<Employee> employees = employeeRepository.findAll();
-        List<EmployeeResponse> responses = new ArrayList<>();
         if (employees.size() != 0) {
-            responses.addAll(employees.stream().map(employeeMapper::toResponse).collect(Collectors.toList()));
+            List<EmployeeResponse> responses = new ArrayList<>(employees.stream().map(employeeMapper::toResponse).collect(Collectors.toList()));
+            response.setMessage(new CommonMessage());
             response.setObject(responses);
             return response;
         }
@@ -88,9 +89,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     public CommonResponse findByCreatedAtBetween(LocalDateTime startDate, LocalDateTime endDate) {
         CommonResponse response = new CommonResponse();
         List<Employee> employees = employeeRepository.findByCreatedAtBetween(startDate, endDate);
-        List<EmployeeResponse> responses = new ArrayList<>();
         if (employees.size() != 0) {
-            responses.addAll(employees.stream().map(employeeMapper::toResponse).collect(Collectors.toList()));
+            List<EmployeeResponse> responses = new ArrayList<>(employees.stream().map(employeeMapper::toResponse).collect(Collectors.toList()));
             response.setObject(responses);
             return response;
         }

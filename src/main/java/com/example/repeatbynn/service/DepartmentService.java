@@ -1,5 +1,6 @@
 package com.example.repeatbynn.service;
 
+import com.example.repeatbynn.dto.common.CommonResponse;
 import com.example.repeatbynn.dto.request.DepartmentRequest;
 import com.example.repeatbynn.dto.response.DepartmentDetailsResponse;
 import com.example.repeatbynn.dto.response.DepartmentResponse;
@@ -9,16 +10,16 @@ import java.util.List;
 
 public interface DepartmentService {
 
-    DepartmentResponse create(DepartmentRequest request);
+    CommonResponse create(DepartmentRequest request);
 
-    DepartmentResponse update(Long id, DepartmentRequest request);
+    CommonResponse update(Long id, DepartmentRequest request);
 
-    DepartmentResponse findById(Long id);
+    CommonResponse findById(Long id);
 
-    DepartmentDetailsResponse getDetailedInfo(Long id);
+    CommonResponse getDetailedInfo(Long id);
 
-    List<DepartmentResponse> findAll();
+    CommonResponse findAll();
 
-    public List<DepartmentDetailsResponse> getAllDetails();
+    CommonResponse getAllDetails();
 
 }

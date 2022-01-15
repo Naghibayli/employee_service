@@ -2,9 +2,9 @@ package com.example.repeatbynn.dto.common;
 
 public class CommonMessage {
 
-    private String message;
-    private String code;
-    private String description;
+    private String message = "Good";
+    private String code = "200";
+    private String description = "Good message";
 
     public String getMessage() {
         return message;
